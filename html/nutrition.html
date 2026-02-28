@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nutrition - RhythmFit</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nutrition</h1>
+        <ul id="nutritionList"></ul>
+        <button onclick="window.location.href='phase.html'">Back</button>
+    </div>
+    <script>
+    const nutritionData = {
+        Menstrual: ["Iron-rich foods", "Warm soups", "Hydration"],
+        Follicular: ["Lean protein", "Fresh vegetables", "Whole grains"],
+        Ovulation: ["Balanced carbs & protein", "Hydration", "Fiber-rich foods"],
+        Luteal: ["Complex carbs", "Nuts & seeds", "Magnesium-rich foods"]
+    };
+
+    const phase = localStorage.getItem("currentPhase") || "Menstrual";
+    const list = document.getElementById("nutritionList");
+    nutritionData[phase].forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        list.appendChild(li);
+    });
+    </script>
+</body>
+</html>
