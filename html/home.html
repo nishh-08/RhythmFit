@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Home - RhythmFit</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/home.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RhythmFits - Home</title>
+
+<!-- Home Page Styling -->
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to RhythmFit</h1>
-        <label>Last period date:</label>
-        <input type="date" id="lastPeriod">
-        <label>Cycle length (days):</label>
-        <input type="number" id="cycleLength" min="20" max="40">
-        <label>Today's Mood Note:</label>
-        <textarea id="moodNote" placeholder="How are you feeling today?"></textarea>
-        <button id="saveBtn">Save & Continue</button>
-    </div>
+<header>
+    <h1>RhythmFits</h1>
+</header>
+
+<div class="card">
+ <!-- Logo placeholder -->
+    <div class="logo-area"></div>
+
+    <h2>Track Your Cycle</h2>
+
+    <label>Period Start Date</label>
+    <input type="date" id="startDate">
+
+    <label>Cycle Length</label>
+    <input type="number" id="cycleLength" value="28">
+
+    <label>Your Mood</label>
+    <select id="mood">
+        <option>Happy</option>
+        <option>Tired</option>
+        <option>Stressed</option>
+        <option>Energetic</option>
+        <option>Emotional</option>
+    </select>
+
+    <button id="checkPhaseBtn"onclick="checkPhase()">Check Now</button>
+</div>
+<!-- Home Page Script -->
+<script src="../js/main.js"></script>
+
 </body>
 </html>

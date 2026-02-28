@@ -1,27 +1,264 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --primary-pink: #ff85a2;
+    --soft-bg: #fff5f7;
+    --dark-text: #4a4a4a;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    /* Phase Colors */
+    --menstrual: #a91717; 
+    --follicular: #157c40; 
+    --ovulation: #c00979; 
+    --luteal: #e322e6;    
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #fff0f5;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--soft-bg);
+    color: var(--dark-text);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     text-align: center;
 }
 
-.container, .intro-container, .phase-container, .game-container {
-    max-width: 500px;
-    margin: auto;
-    padding: 20px;
+/* Container Styling */
+.card, .intro-container, .result-card, .content-box {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    width: 90%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+    border-top: 8px solid var(--primary-pink); /* Default color */
 }
 
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-pink);
+    margin-bottom: 20px;
+}
+
+/* Form Elements */
+label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin: 15px 0 5px 5px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    outline: none;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+input:focus { border-color: var(--primary-pink); }
+
+/* Buttons */
 button {
-    background-color: #ff69b4;
+    background: var(--primary-pink);
     color: white;
     border: none;
-    padding: 10px 20px;
-    margin: 10px;
+    padding: 14px 20px;
+    border-radius: 50px;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 8px;
-    font-size: 16px;
+    width: 100%;
+    margin-top: 20px;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(255, 133, 162, 0.3);
 }
 
 button:hover {
-    background-color: #ff1493;
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+/* Phase-Specific Borders (Applied via JS) */
+.phase-Menstrual { border-top-color: var(--menstrual) !important; }
+.phase-Follicular { border-top-color: var(--follicular) !important; }
+.phase-Ovulation { border-top-color: var(--ovulation) !important; }
+.phase-Luteal { border-top-color: var(--luteal) !important; }
+
+/* Icons & Images */
+.logo-area {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    background: url('https://cdn-icons-png.flaticon.com/512/3663/3663335.png') no-repeat center;
+    background-size: contain;
+}
+
+#workoutData::before {
+    content: "";
+    display: block;
+    height: 80px;
+    background: url('https://cdn-icons-png.flaticon.com/512/2964/2964514.png') no-repeat center;
+    background-size: contain;
+    margin-bottom: 20px;
+}
+
+#foodData::before {
+    content: "";
+    display: block;
+    height: 80px;
+    background: url('https://cdn-icons-png.flaticon.com/512/706/706164.png') no-repeat center;
+    background-size: contain;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+/* Styling for the 1, 2, 3 lists */
+#workoutData, #foodData {
+    text-align: left;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    padding: 10px;
+}
+
+/* Detailed Nutrition Section for Menstrual Phase */
+.nutrition-detail {
+    background: #fffafa;
+    border-left: 4px solid var(--primary-pink);
+    padding: 10px;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+
+
+#workoutData, #foodData {
+    text-align: left;
+    line-height: 1.8;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+
+#foodData strong {
+    color: var(--primary-pink);
+}
+
+
+
+
+
+
+
+/* Styling for the new Reassurance & Well-being sections */
+.wellbeing-section {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 25px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.wellbeing-header {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-pink);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.wellbeing-header i {
+    margin-right: 10px;
+}
+
+.wellbeing-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+}
+
+.reassurance-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+/* Icons and Visuals for Well-being (Dynamic via Phase) */
+.phase-Menstrual .wellbeing-header::before { content: '🌙'; margin-right: 10px; }
+.phase-Follicular .wellbeing-header::before { content: '🌱'; margin-right: 10px; }
+.phase-Ovulation .wellbeing-header::before { content: '☀️'; margin-right: 10px; }
+.phase-Luteal .wellbeing-header::before { content: '🍂'; margin-right: 10px; }
+
+
+
+
+
+
+/* --- AESTHETIC PHASE THEMES --- */
+
+/* Menstrual: Deep & Grounding */
+body.menstrual {
+  background: linear-gradient(180deg, #da1a1a 0%, #fdf2f2 40%);
+  color: #9c2121;
+}
+body.menstrual .card { border-top: 5px solid #900303; background: #fffafa; }
+
+/* Follicular: Fresh & Awakening */
+body.follicular {
+  background: linear-gradient(180deg, #2d6a4f 0%, #f0fdf4 40%);
+  color: #064e3b;
+}
+body.follicular .card { border-top: 5px solid #52b788; background: #f7fee7; }
+
+/* Ovulatory: Vibrant & Glowing */
+body.ovulatory {
+  background: linear-gradient(180deg, #ec4e9f 0%, #fffbeb 40%);
+  color: #ae0763;
+}
+body.ovulatory .card { border-top: 5px solid #84084a; background: #fffdf2; }
+
+/* Luteal: Soft & Twilight */
+body.luteal {
+  background: linear-gradient(180deg, #6b21a8 0%, #faf5ff 40%);
+  color: #4c1d95;
+}
+body.luteal .card { border-top: 5px solid #a855f7; background: #fdfaff; }
+
+/* --- GLOBAL STYLES --- */
+body {
+  min-height: 100vh;
+  margin: 0;
+  transition: all 0.6s ease; /* Smooth fade when phase changes */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Make your content boxes pop */
+.card, .info-box {
+  margin: 20px auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }

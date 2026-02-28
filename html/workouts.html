@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Workouts - RhythmFit</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/main.js" defer></script>
+<meta charset="UTF-8">
+<title>Workouts</title>
+<link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Workouts</h1>
-        <ul id="workoutList"></ul>
-        <button onclick="window.location.href='phase.html'">Back</button>
-    </div>
-    <script>
-    const workoutData = {
-        Menstrual: ["Gentle yoga", "Stretching", "Short walks"],
-        Follicular: ["Strength training", "Moderate cardio", "Try new workouts"],
-        Ovulation: ["HIIT", "Heavy lifting", "Group workouts"],
-        Luteal: ["Pilates", "Moderate strength", "Light jogging"]
-    };
 
-    const phase = localStorage.getItem("currentPhase") || "Menstrual";
-    const list = document.getElementById("workoutList");
-    workoutData[phase].forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        list.appendChild(li);
-    });
-    </script>
+<body>
+
+<header>
+<h2>Workout Plans</h2>
+</header>
+
+<div class="content-box">
+<h3>Recommended Workouts</h3>
+<p id="workoutData"></p>
+</div>
+
+<button onclick="goPhase()">Back</button>
+
+<script src="../js/main.js"></script>
 </body>
 </html>
